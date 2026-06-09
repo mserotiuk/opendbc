@@ -99,8 +99,10 @@ class LongitudinalController:
     """
 
     # Upper jerk limit varies based on speed and control state
+    # Higher limit at standstill gives a snappier launch from a stop (ISO 15622 allows
+    # more jerk at low speed; the lower/braking limit is already 5.0 here)
     if long_control_state == LongCtrlState.pid:
-      upper_limit = float(np.interp(velocity, [0.0, 5.0, 20.0], [2.0, 3.0, 2.0]))
+      upper_limit = float(np.interp(velocity, [0.0, 5.0, 20.0], [3.0, 3.0, 2.0]))
     else:
       upper_limit = 0.5  # Default for non-PID states
 
