@@ -109,7 +109,8 @@ class CarInterface(CarInterfaceBase):
         ret.safetyConfigs[0].safetyParam |= HyundaiSafetyFlags.CAMERA_SCC.value
 
       # These cars have the LFA button on the steering wheel
-      if 0x391 in fingerprint[0]:
+      # KIA_CEED sends BCM_PO_11 only on button press, so fingerprinting misses it
+      if 0x391 in fingerprint[0] or candidate == CAR.KIA_CEED:
         ret.flags |= HyundaiFlags.HAS_LDA_BUTTON.value
 
     # Common lateral control setup
