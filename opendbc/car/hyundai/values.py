@@ -554,7 +554,8 @@ class CAR(Platforms):
   KIA_CEED = HyundaiPlatformConfig(
     [HyundaiCarDocs("Kia Ceed 2019-21", car_parts=CarParts.common([CarHarness.hyundai_e]))],
     CarSpecs(mass=1450, wheelbase=2.65, steerRatio=13.75, tireStiffnessFactor=0.5),
-    flags=HyundaiFlags.LEGACY,
+    # 2021 facelift Ceed/ProCeed sends valid counters and checksums (verified on car
+    # under standard hyundai safety mode); LEGACY flag removed to enable longitudinal
   )
   KIA_EV6 = HyundaiCanFDPlatformConfig(
     [
