@@ -28,6 +28,7 @@ NO_DATES_PLATFORMS = {
   CAR.HYUNDAI_ELANTRA,
   CAR.HYUNDAI_ELANTRA_GT_I30,
   CAR.KIA_CEED,
+  CAR.KIA_CEED_2021,
   CAR.KIA_FORTE,
   CAR.KIA_OPTIMA_G4,
   CAR.KIA_OPTIMA_G4_FL,
@@ -62,6 +63,19 @@ class TestHyundaiFingerprint(unittest.TestCase):
         fingerprint[1][RADAR_START_ADDR] = 8
       CP = CarInterface.get_params(CAR.HYUNDAI_SONATA, fingerprint, [], False, False, False)
       assert CP.radarUnavailable != radar
+
+  def test_ceed_longitudinal_config(self):
+    CP = CarInterface.get_params(CAR.KIA_CEED_2021, gen_empty_fingerprint(), [], True, False, False)
+    assert CP.alphaLongitudinalAvailable
+    assert CP.openpilotLongitudinalControl
+    assert not CP.flags & HyundaiFlags.LEGACY
+    assert CP.flags & HyundaiFlags.HAS_LDA_BUTTON
+    assert CP.safetyConfigs[-1].safetyModel == CarParams.SafetyModel.hyundai
+
+    legacy_cp = CarInterface.get_params(CAR.KIA_CEED, gen_empty_fingerprint(), [], True, False, False)
+    assert not legacy_cp.alphaLongitudinalAvailable
+    assert legacy_cp.flags & HyundaiFlags.LEGACY
+    assert legacy_cp.safetyConfigs[-1].safetyModel == CarParams.SafetyModel.hyundaiLegacy
 
   def test_alternate_limits(self):
     # Alternate lateral control limits, for high torque cars, verify Panda safety mode flag is set

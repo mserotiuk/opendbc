@@ -2023,15 +2023,13 @@
     ],
     "package": "Smart Cruise Control (SCC)"
   },
-  "Kia Ceed 2019-21": {
+  "Kia Ceed 2019": {
     "platform": "KIA_CEED",
     "make": "Kia",
     "brand": "hyundai",
     "model": "Ceed",
     "year": [
-      "2019",
-      "2020",
-      "2021"
+      "2019"
     ],
     "package": "Smart Cruise Control (SCC)"
   },
@@ -2044,6 +2042,16 @@
       "2022"
     ],
     "package": "No Smart Cruise Control (Non-SCC)"
+  },
+  "Kia Ceed/ProCeed 2021": {
+    "platform": "KIA_CEED_2021",
+    "make": "Kia",
+    "brand": "hyundai",
+    "model": "Ceed/ProCeed",
+    "year": [
+      "2021"
+    ],
+    "package": "Smart Cruise Control (SCC)"
   },
   "Kia EV6 (Southeast Asia only) 2022-24": {
     "platform": "KIA_EV6",

@@ -35,6 +35,7 @@ non_tested_cars = [
   TOYOTA.TOYOTA_RAV4H,
 
   # port extensions
+  HYUNDAI.KIA_CEED_2021,  # add a route after the first on-car validation
   HYUNDAI.KIA_CEED_PHEV_2022_NON_SCC,
   HYUNDAI.HYUNDAI_KONA_EV_NON_SCC,
   HYUNDAI.HYUNDAI_BAYON_1ST_GEN_NON_SCC,
